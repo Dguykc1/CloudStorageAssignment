@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]], Welcome!!! We have those credenitals in our system:</h1>
+
+<h2 th:each="credential:${credentials}" th:text="${credential.urlUserName}">urlusername List</h2>
+<h2 th:each="credential:${credentials}" th:text="${credential.urlPassWord}">urlPassword List</h2>
+<h2 th:each="credential:${credentials}" th:text="${credential.url}">url List</h2>
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Sign Out">
+</form>
+</body>
+</html>
